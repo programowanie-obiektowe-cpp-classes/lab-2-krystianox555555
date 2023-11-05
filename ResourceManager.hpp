@@ -1,38 +1,28 @@
 #pragma once
-#include<iostream>
-#include "Resource.hpp"
-using namespace std;
 
+#include "Resource.hpp"
 
 class ResourceManager
 {
-    // Twoja implementacja tutaj
-public :
-
-    double get() { return res->get(); }
-    ResourceManager() { res = new Resource; }
-    ResourceManager(const ResourceManager& Rm) : res{ Rm.res }
-    {
-        res = new Resource{ *Rm.res };
+public:
+    double get() { return R->get(); }
+    ResourceManager() { R = new Resource; }
+    ~ResourceManager() { delete R; }
+    ResourceManager(const ResourceManager& Rm) : R{Rm.R} 
+    { 
+        R = new Resource{*Rm.R}; 
     }
-
     ResourceManager& operator=(ResourceManager Rm)
     {
-        if (res == Rm.res) {
+        if (R == Rm.R) {
         }
         else {
-            delete res;
-            res = new Resource{ *Rm.res };
+            delete R;
+            R = new Resource{*Rm.R};
         }
         return *this;
     }
 
- ~ResourceManager() { delete res; }
-private :
-   
-    Resource* res;
-    //const unsigned int n = 100;
-   
-   
-
+private:
+    Resource* R;
 };
