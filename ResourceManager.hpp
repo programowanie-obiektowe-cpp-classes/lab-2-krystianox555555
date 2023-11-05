@@ -27,12 +27,12 @@ public :
         return *this;
     }
 
-
+ ~ResourceManager() { delete res; }
 private :
    
     Resource* res;
     //const unsigned int n = 100;
    
-    ~ResourceManager() { delete res; }
+   
 
 };
