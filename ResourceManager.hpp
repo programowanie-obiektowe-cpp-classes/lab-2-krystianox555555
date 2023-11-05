@@ -8,15 +8,7 @@ class ResourceManager
 {
     // Twoja implementacja tutaj
 public :
-    double* wektor;
-    ResourceManager(int n)
-    {
-        int h = 0;
-        std::cout << "witam" << std::endl;
-        wektor =new double[n];
 
-    };
-    ~ResourceManager() { delete[] wektor; };
     double get() { return res->get(); }
     ResourceManager() { res = new Resource; }
     ResourceManager(const ResourceManager& Rm) : res{ Rm.res }
@@ -37,11 +29,7 @@ public :
 
 
 private :
-    int dlugosc;
-    double get()
-    {
-        return dlugosc;
-    }
+   
     Resource* res;
     //const unsigned int n = 100;
    
